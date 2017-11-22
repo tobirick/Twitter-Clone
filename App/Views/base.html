@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+{% for message in flash_messages %}
+<div class="alert alert-{{ message.type }}">
+    {{ message.body }}
+</div>
+{% endfor %}
+
+<nav>
+    <ul>
+    <li><a href="/">Home</a></li>
+    {% if current_user %}
+    <li><a href="/profile/edit">Settings</a></li>
+    <li><a href="/users/{{ current_user.username }}">My Profile Page</a></li>
+    <li><a href="/logout">Logout</a></li>
+    {% else %}
+    <li><a href="/signup">Sign up</a></li>
+    <li><a href="/login">Login</a></li>
+    {% endif %}
+
+    <li>
+        <input type="text" placeholder="Search" class="search"/>
+        <div class="search-result">
+
+        </div>
+    </li>
+    </ul>
+</nav>
+
+{% block body %}
+{% endblock %}
+<script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.min.js"></script>
+<script src="/js/search.js"></script>
+<script src="/js/follow.js"></script>
+
+{% block footer %}
+{% endblock %}
+<input class="csrf_token" type="hidden" value="{{ csrf_token }}" />
+</body>
+</html>

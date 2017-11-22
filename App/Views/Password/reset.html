@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}Reset Password{% endblock %}
+
+{% block footer %}
+<script src="/js/validate.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#formPasswordReset').validate({
+            rules : {
+                password: {
+                    required:true,
+                    minlength: 6,
+                    validPassword: true
+                },
+                password_confirmation: {
+                    equalTo: '#inputPassword'
+                }
+            }
+        });
+    });
+</script>
+{% endblock %}
+
+{% block body %}
+
+<h1>Reset password</h1>
+
+{% if user.errors is not empty %}
+<p>Errors:</p>
+<ul>
+    {% for error in user.errors %}
+    <li>{{ error }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+<form id="formPasswordReset" method="post" action="/password/reset-password">
+    <input type="hidden" class="csrf_token" name="csrf_token" value="{{ csrf_token }}" />
+    <input type="hidden" name="reset_token" value="{{ token }}" />
+    <div>
+        <label for="inputPassword">Password</label>
+        <input type="password" id="inputPassword" name="password" placeholder="Password" required />
+    </div>
+    <div>
+        <label for="inputPasswordConfirmation">Password</label>
+        <input type="password" id="inputPasswordConfirmation" name="password_confirmation" placeholder="Repeat password" required />
+    </div>
+    <button type="submit">Reset password</button>
+</form>
+
+{% endblock %}

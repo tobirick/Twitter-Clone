@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+
+{% block body %}
+{% if current_user %}
+<h1>Welcome {{ current_user.name }}</h1>
+{% else %}
+<h1>Welcome, please login</h1>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% block title %}Create Account{% endblock %}
+
+{% block footer %}
+<script src="/js/validate.js"></script>
+
+<script>
+    $(document).ready(function() {
+
+        $('#formSignup').validate({
+            rules: {
+                name: 'required',
+                email: {
+                    required: true,
+                    email: true,
+                    remote: '/account/validate-email'
+                },
+                password: {
+                    required: true,
+                    minlength: 6,
+                    validPassword: true
+                },
+                username: {
+                    required: true,
+                    minlength: 5,
+                    remote: 'account/validate-username'
+                }
+            },
+            messages: {
+                email: {
+                    remote: 'email already taken'
+                },
+                username: {
+                    remote: 'username already taken'
+                }
+            }
+        });
+    });
+</script>
+{% endblock %}
+
+{% block body %}
+
+<h1>Sign up</h1>
+
+{% if user.errors is not empty %}
+<p>Errors:</p>
+<ul>
+    {% for error in user.errors %}
+    <li>{{ error }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+<form id="formSignup" method="post" action="/signup/create">
+    <input class="csrf_token" type="hidden" name="csrf_token" value="{{ csrf_token }}" />
+    <div>
+        <label for="inputName">Name</label>
+        <input type="text" id="inputName" name="name" placeholder="Name" autofocus value="{{ user.name }}" required />
+    </div>
+    <div>
+        <label for="inputEmail">Email</label>
+        <input type="email" id="inputEmail" name="email" placeholder="Email address" value="{{ user.email }}" required />
+    </div>
+    <div>
+        <label for="inputUsername">Username</label>
+        <input type="text" id="inputUsername" name="username" placeholder="Username" value="{{ user.username }}" required />
+    </div>
+    <div>
+        <label for="inputPassword">Password</label>
+        <input type="password" id="inputPassword" name="password" placeholder="Password" required />
+    </div>
+    <div>
+        <label for="inputPasswordConfirmation">Password</label>
+        <input type="password" id="inputPasswordConfirmation" name="password_confirmation" placeholder="Repeat password" required />
+    </div>
+    <button type="submit">Sign up</button>
+</form>
+
+{% endblock %}

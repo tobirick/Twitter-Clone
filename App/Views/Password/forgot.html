@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}Forgot password{% endblock %}
+
+{% block footer %}
+<script>
+    $(document).ready(function() {
+        $('#requestPasswordReset').validate({
+            rules : {
+                email: {
+                    required:true,
+                    email: true
+                }
+            }
+        });
+    });
+</script>
+{% endblock %}
+
+{% block body %}
+
+<h1>Request password reset</h1>
+
+<form id="requestPasswordReset" action="/password/request-reset" method="post">
+    <input type="hidden" class="csrf_token" name="csrf_token" value="{{ csrf_token }}" />
+    <div>
+        <label for="inputEmail">Email address</label>
+        <input type="email" id ="inputEmail" name="email" placeholder="Email address" autofocus />
+    </div>
+    <button type="submit">Send password reset</button>
+
+</form>
+
+{% endblock %}

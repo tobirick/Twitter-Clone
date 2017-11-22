@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Login{% endblock %}
+
+{% block body %}
+
+<h1>Login</h1>
+
+<form action="/login/create" method="post">
+    <input type="hidden" class="csrf_token" name="csrf_token" value="{{ csrf_token }}" />
+    <div>
+        <label for="inputEmail">Email address</label>
+        <input type="email" id ="inputEmail" name="email" placeholder="Email address" autofocus value="{{ email }}" />
+    </div>
+    <div>
+        <label for="inputPassword">Password</label>
+        <input type="password" id ="inputPassword" name="password" placeholder="Password" />
+    </div>
+    <button type="submit">Login</button>
+    <a href="/password/forgot">Request password reset</a>
+
+</form>
+
+{% endblock %}

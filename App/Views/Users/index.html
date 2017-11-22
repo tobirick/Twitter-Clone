@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% block title %}{{user.name}}{% endblock %}
+
+{% block body %}
+
+<h1>{{user.name}}</h1>
+
+<p>Hier kommt users page hin yalla</p>
+
+{% if current_user.id == user.id %}
+<a href="/profile/edit" class="edit-profile">Edit profile</a>
+{% else %}
+<div data-user-id="{{ user.id }}" class="follow-action">
+    {% if current_user %}
+    {% if checkIfUserFollows(current_user.id, user.id) %}
+        <a href="#" class="follow-btn">Unfollow</a>
+    {% else %}
+        <a href="#" class="follow-btn">Follow</a>
+    {% endif %}
+    {% else %}
+    <a href="/login" class="not-logged-in">Follow</a>
+    {% endif %}
+</div>
+{% endif %}
+<br>
+<br>
+
+
+<div>Following:</div>
+{% for user in following %}
+<div data-user-id="{{ user.id }}" class="follow-action">
+    {% if current_user %}
+        {% if current_user.id == user.id  %}
+            <a href="/users/{{ user.username }}">{{ user.username }}</a>
+        {% else %}
+            <a href="/users/{{ user.username }}">{{ user.username }}</a>
+            {% if checkIfUserFollows(current_user.id, user.id) %}
+                <a href="#" class="follow-btn">Unfollow</a>
+            {% else %}
+                <a href="#" class="follow-btn">Follow</a>
+            {% endif %}
+        {% endif %}
+    {% else %}
+        <a href="/users/{{ user.username }}">{{ user.username }}</a>
+        <a href="/login" class="not-logged-in">Follow</a>
+    {% endif %}
+</div>
+{% endfor %}
+
+<br>
+<br>
+
+<div>Followers:</div>
+{% for user in followers %}
+<div data-user-id="{{ user.id }}" class="follow-action">
+    {% if current_user %}
+    {% if current_user.id == user.id  %}
+    <a href="/users/{{ user.username }}">{{ user.username }}</a>
+    {% else %}
+    <a href="/users/{{ user.username }}">{{ user.username }}</a>
+    {% if checkIfUserFollows(current_user.id, user.id) %}
+    <a href="#" class="follow-btn">Unfollow</a>
+    {% else %}
+    <a href="#" class="follow-btn">Follow</a>
+    {% endif %}
+    {% endif %}
+</div>
+{% else %}
+<a href="/users/{{ user.username }}">{{ user.username }}</a>
+<a href="/login" class="not-logged-in">Follow</a>
+</div>
+{% endif %}
+{% endfor %}
+
+
+<br>
+<br>
+<div>Name: {{ user.name }}</div>
+<div>Email: {{ user.email }}</div>
+<div>Username: {{ user.username }}</div>
+<div>Website: {{ user.website }}</div>
+<div>Bio: {{ user.bio }}</div>
+<div>Cover image: <img src="/img/defaultCoverImage.png" /></div>
+<div>Profile image: <img src="/img/defaultProfileImage.png" /></div>
+
+
+{% endblock %}
