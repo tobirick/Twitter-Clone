@@ -1,4 +1,0 @@
-[18-Nov-2017 18:49:29 Europe/Berlin] Uncaught exception: 'Exception' with message 'no route matched'
-Stack trace: #0 /Applications/MAMP/htdocs/MVCApp/public/index.php(75): Core\Router->dispatch('login123123')
-#1 {main}
-Thrown in '/Applications/MAMP/htdocs/MVCApp/Core/Router.php' on line 102

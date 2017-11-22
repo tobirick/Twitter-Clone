@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f3e16c81-6624-4987-aab8-a8de5436db11" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/logs/2017-11-15.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/logs/2017-11-16.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/logs/2017-11-18.txt" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -94,7 +97,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Signup.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Signup.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/App/Controllers/Signup.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-362">
@@ -102,6 +105,16 @@
               <folding>
                 <element signature="e#118#133#0#PHP" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" column="6" lean-forward="false" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -329,12 +342,12 @@
       <workItem from="1511215158620" duration="709000" />
       <workItem from="1511282893046" duration="7006000" />
       <workItem from="1511296470044" duration="4408000" />
-      <workItem from="1511375518400" duration="2653000" />
+      <workItem from="1511375518400" duration="2823000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="92753000" />
+    <option name="totallyTimeSpent" value="92923000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -764,14 +777,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="5" lean-forward="false" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/App/Controllers/Signup.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-362">
@@ -779,6 +784,14 @@
           <folding>
             <element signature="e#118#133#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="6" lean-forward="false" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
+          <folding />
         </state>
       </provider>
     </entry>
