@@ -17,4 +17,39 @@
 
 ul li {
     display:inline-block;
+    cursor:pointer;
+}
+
+.modal-container {
+    background: rgba(0,0,0,0.5);
+    display: none;
+    position: fixed;
+    overflow: auto;
+    overflow-x: hidden;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 5000;
+}
+
+.modal-enabled .modal-container {
+    display:block;
+}
+
+.modal {
+    z-index:6000;
+    background-color: #fff;
+    border-radius: 4px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.modal-enabled {
+    overflow:hidden;
+}
+
+.close-modal {
+    float:right;
+    cursor:pointer;
 }
