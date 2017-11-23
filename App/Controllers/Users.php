@@ -24,13 +24,13 @@ class Users extends \Core\Controller {
         $following = Follow::findFollowingByID($user->id);
 
         if($user) {
-            View::renderTemplate('Users/index.html', [
+            View::renderTemplate('Users/index.html.twig', [
                 'user' => $user,
                 'followers' => $followers,
                 'following' => $following
             ]);
         } else {
-            View::renderTemplate('Users/userNotFound.html');
+            View::renderTemplate('Users/userNotFound.html.twig');
         }
     }
 }

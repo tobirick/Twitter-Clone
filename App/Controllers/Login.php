@@ -17,7 +17,7 @@ class Login extends \Core\Controller {
 
     public function indexAction() {
         if(!$this->isLoggedIn()) {
-            View::renderTemplate('Login/loginAccount.html');
+            View::renderTemplate('Login/loginAccount.html.twig');
         }
     }
 
@@ -39,7 +39,7 @@ class Login extends \Core\Controller {
             } else {
                 Flash::addMessage('Please activate your account. ', Flash::WARNING);
 
-                View::renderTemplate('Login/loginAccount.html', [
+                View::renderTemplate('Login/loginAccount.html.twig', [
                     'email' => $_POST['email'],
                 ]);
             }
@@ -48,7 +48,7 @@ class Login extends \Core\Controller {
 
             Flash::addMessage('Login unsuccessful, please try again.', Flash::WARNING);
 
-            View::renderTemplate('Login/loginAccount.html', [
+            View::renderTemplate('Login/loginAccount.html.twig', [
                 'email' => $_POST['email'],
             ]);
         }

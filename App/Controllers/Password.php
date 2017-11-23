@@ -21,13 +21,13 @@ class Password extends \Core\Controller {
     }
 
     public function forgotAction() {
-        View::renderTemplate('Password/forgot.html');
+        View::renderTemplate('Password/forgot.html.twig');
     }
 
     public function requestResetAction() {
         User::sendPasswordReset($_POST['email']);
 
-        View::renderTemplate('Password/resetRequested.html');
+        View::renderTemplate('Password/resetRequested.html.twig');
     }
 
     public function resetAction() {
@@ -35,7 +35,7 @@ class Password extends \Core\Controller {
 
         $user = $this->getUserOrExit($token);
 
-        View::renderTemplate('Password/reset.html', [
+        View::renderTemplate('Password/reset.html.twig', [
             'token' => $token
         ]);
 
@@ -52,7 +52,7 @@ class Password extends \Core\Controller {
 
            $this->redirect('/login');
        } else {
-           View::renderTemplate('Password/reset.html', [
+           View::renderTemplate('Password/reset.html.twig', [
               'token' => $token,
               'user' => $user
            ]);
@@ -66,7 +66,7 @@ class Password extends \Core\Controller {
         if($user) {
             return $user;
         } else {
-            View::renderTemplate('Password/tokenExpired.html');
+            View::renderTemplate('Password/tokenExpired.html.twig');
             exit;
         }
     }

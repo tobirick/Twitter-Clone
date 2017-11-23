@@ -20,7 +20,7 @@ class Search extends \Core\Controller {
 
             $result = User::searchUsersByUsername($search);
 
-            $html = View::getTemplate('Popups/userSearch.html', [
+            $html = View::getTemplate('Popups/userSearch.html.twig', [
                 'users' => $result
             ]);
 

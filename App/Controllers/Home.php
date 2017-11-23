@@ -13,7 +13,7 @@ use \Core\View;
 class Home extends \Core\Controller {
     public function indexAction() {
 
-        View::renderTemplate('Home/index.html');
+        View::renderTemplate('Home/index.html.twig');
 
         /*View::render('Home/index.php', [
             'name' => 'Tobi',

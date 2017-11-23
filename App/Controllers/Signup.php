@@ -22,7 +22,7 @@ class Signup extends \Core\Controller {
     }
 
     public function indexAction() {
-        View::renderTemplate('Signup/newAccount.html');
+        View::renderTemplate('Signup/newAccount.html.twig');
     }
 
     // create user
@@ -50,7 +50,7 @@ class Signup extends \Core\Controller {
 
         } else {
 
-            View::renderTemplate('Signup/newAccount.html', [
+            View::renderTemplate('Signup/newAccount.html.twig', [
                 'user' => $user
             ]);
 
