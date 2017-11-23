@@ -6,7 +6,7 @@
  * Time: 19:57
  */
 
-namespace App\Message;
+namespace App\Models;
 
 use PDO;
 

@@ -18,12 +18,6 @@ class Follows extends \Core\Controller {
 
         if(isset($_POST['user_id']) && !empty($_POST['user_id'])) {
 
-            $csrf_token = CSRF::getToken();
-
-            $result = array();
-
-            $result['csrf_token'] = $csrf_token;
-
             if(Follow::checkIfUserFollows(Auth::getUser()->id, $_POST['user_id'])) {
                 // delete follow
                 Follow::unfollowUser(Auth::getUser()->id, $_POST['user_id']);
@@ -36,6 +30,13 @@ class Follows extends \Core\Controller {
 
                 $result['follow'] = 'unfollow';
             }
+
+            if($result) {
+                $csrf_token = CSRF::getToken();
+
+                $result['csrf_token'] = $csrf_token;
+            }
+
 
             header('Content-type: application/json');
             echo json_encode($result);
