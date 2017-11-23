@@ -1,10 +1,8 @@
 <span class="close-modal">x</span>
+<br>
+<br>
 {% for message in messages %}
-<div data-user-id="">
-    <div>
-    </div>
-    <br>
-    <br>
+<div id="showConversation" data-user-id="{{ message.from_id  }}">
 <div>
     {{ message.username }}
 </div>

@@ -1,0 +1,31 @@
+<span id="showMessages">Go back</span>
+<span class="close-modal">x</span>
+<br>
+<br>
+{% for message in messages %}
+    {% if current_user.id == message.from_id %}
+<div style="float:right;">
+    <div>
+        {{ message.username }}
+    </div>
+    <div>
+        {{ message.message }}
+    </div>
+</div>
+    <br>
+    <br>
+        {% else %}
+            <div style="float:left;">
+                <div>
+                    {{ message.username }}
+                </div>
+                <div>
+                    {{ message.message }}
+                </div>
+            </div>
+            <br>
+            <br>
+            {% endif %}
+{% endfor %}
+<input id="inputMessage" type="text" name="inputMessage" autofocus placegolder="Write your message" />
+<button data-user-id="{{ chatpartnerid }}" id="sendMessage" type="submit">Send</button>

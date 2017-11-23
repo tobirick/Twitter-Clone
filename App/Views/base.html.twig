@@ -24,7 +24,7 @@
     {% if current_user %}
     <li><a href="/profile/edit">Settings</a></li>
     <li><a href="/users/{{ current_user.username }}">My Profile Page</a></li>
-        <li><a class="open-popup" href="#" id="messagePopup">Messages</a></li>
+        <li><a class="open-popup" href="#" id="showMessages">Messages</a></li>
     <li><a href="/logout">Logout</a></li>
     {% else %}
     <li><a href="/signup">Sign up</a></li>

@@ -10,5 +10,6 @@ $(document).ready(function () {
 
     $(document).on('click', '.close-modal', function() {
         $('body').removeClass('modal-enabled');
+        $('.modal').html('');
     });
 });
